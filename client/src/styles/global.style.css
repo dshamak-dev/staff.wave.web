@@ -1,0 +1,93 @@
+@import url("./text.style.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary-rgb: 255, 255, 255;
+  --bg-secondary-rgb: 0, 0, 0;
+  --bg-highlight-rgb: 110, 160, 220;
+
+  --text-primary-rgb: 0, 0, 0;
+  --text-secondary-rgb: 255, 255, 255;
+
+  --text-highlight-rgb: 110, 160, 220;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary-rgb: 0, 0, 0;
+    --bg-secondary-rgb: 255, 255, 255;
+
+    --text-primary-rgb: 255, 255, 255;
+    --text-secondary-rgb: 0, 0, 0;
+    --text-highlight-rgb: 110, 160, 220;
+  }
+}
+
+@layer components {
+  .bg-primary {
+    background-color: rgb(var(--bg-primary-rgb));
+  }
+  .bg-secondary {
+    background-color: rgb(var(--bg-secondary-rgb));
+  }
+
+  .text-primary {
+    color: rgb(var(--text-primary-rgb));
+  }
+
+  .text-secondary {
+    color: rgb(var(--text-secondary-rgb));
+  }
+
+  .primary {
+    @apply text-primary bg-primary;
+  }
+
+  .secondary {
+    @apply text-secondary bg-secondary;
+  }
+
+  .text-highlight {
+    color: rgb(var(--text-highlight-rgb));
+  }
+
+  .button,
+  button {
+    --_bg: rgb(103, 103, 103);
+    --_color: white;
+
+    background-color: var(--_bg);
+    color: var(--_color);
+
+    @apply px-8 py-2 rounded;
+  }
+
+  .button.highlight,
+  button.highlight {
+    --_bg: rgb(var(--bg-highlight-rgb));
+  }
+}
+
+html {
+  --unit: 20px;
+  --screenUnit: min(calc(100vw * 0.02), var(--unit));
+  --_screenUnit: max(14px, var(--screenUnit));
+  --_unit: var(--_screenUnit);
+
+  font-size: var(--_unit);
+
+  @apply secondary;
+}
+
+body {
+  /* color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+}
