@@ -46,7 +46,7 @@
     section.intro:before {
       content: "";
 
-      background-image: url("/assets/intro.png");
+      background-image: url("/assets/intro/intro.webp");
       background-position: center top;
       background-size: contain;
       background-repeat: no-repeat;

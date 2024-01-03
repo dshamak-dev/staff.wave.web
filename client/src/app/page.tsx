@@ -37,13 +37,11 @@ export default function LandingPage() {
             <h1 className="max-w-[70vw]">
               STAFF.WAVE Your Complete HR and Team Management Solution
             </h1>
-            <p>
-              Unlock the full potential of your workforce with our ultimate
+            <p>{`Unlock the full potential of your workforce with our ultimate
               Human Resources platform designed to streamline your team
               management processes. Whether you're a small startup or a growing
               enterprise, Staff.Wave empowers you to build a thriving workplace
-              environment where your team can flourish.
-            </p>
+              environment where your team can flourish.`}</p>
           </div>
           <div className="flex gap-8 justify-center">
             {signupButton}
@@ -53,11 +51,9 @@ export default function LandingPage() {
         <section id="features" className="flex flex-col gap-12">
           <div className="flex flex-col gap-4 text-center">
             <h2>Effortless Employee Onboarding</h2>
-            <p>
-              Simplify onboarding with Saff.Wave's user-friendly tools. From
+            <p>{`Simplify onboarding with Saff.Wave's user-friendly tools. From
               electronic document signing to personalized welcome workflows,
-              ensure your new team members feel at home from the very start.
-            </p>
+              ensure your new team members feel at home from the very start.`}</p>
           </div>
           <div className="grid sm:grid-cols-2 gap-12">
             {introlFeatures.map(({ icon, title, text }, index) => (
@@ -87,12 +83,10 @@ export default function LandingPage() {
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-2">
                 <h3>Elevate with Saff.Wave</h3>
-                <p>
-                  Transform the way you work, cultivate a positive company
+                <p>{`Transform the way you work, cultivate a positive company
                   culture, and propel your business forward. Try Saff.Wave today
                   and witness the difference in efficiency, collaboration, and
-                  employee satisfaction.
-                </p>
+                  employee satisfaction.`}</p>
               </div>
               <div>{renderLearnMoreButton("pros")}</div>
             </div>
@@ -103,8 +97,8 @@ export default function LandingPage() {
             <div className="flex flex-col gap-8">
               {prosList.map(({ title, text }, index) => (
                 <div key={index} className="flex flex-col gap-2">
-                  <h4 className="text-xs">{title}</h4>
-                  <p className="text-xs text-gray-500">{text}</p>
+                  <h4 className="text-sm">{title}</h4>
+                  <p className="text-sm text-gray-500">{text}</p>
                 </div>
               ))}
             </div>
@@ -116,13 +110,11 @@ export default function LandingPage() {
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-2">
                 <h2>Effortless Employee Onboarding</h2>
-                <p>
-                  Simplify onboarding with Saff.Wave's user-friendly tools.
+                <p>{`Simplify onboarding with Saff.Wave's user-friendly tools.
                   Transform the way you work, cultivate a positive company
                   culture, and propel your business forward. Try Saff.Wave today
                   and witness the difference in efficiency, collaboration, and
-                  employee satisfaction.
-                </p>
+                  employee satisfaction.`}</p>
               </div>
               <div>{signupButton}</div>
             </div>
