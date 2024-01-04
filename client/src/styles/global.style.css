@@ -15,7 +15,7 @@
   --text-highlight-rgb: 110, 160, 220;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --bg-primary-rgb: 0, 0, 0;
     --bg-secondary-rgb: 255, 255, 255;
@@ -24,7 +24,7 @@
     --text-secondary-rgb: 0, 0, 0;
     --text-highlight-rgb: 110, 160, 220;
   }
-}
+} */
 
 @layer components {
   .bg-primary {
