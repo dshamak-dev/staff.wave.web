@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { PropsWithChildren, useMemo } from "react";
+import React, { PropsWithChildren, useCallback, useMemo } from "react";
 import "sw/styles/input.style.css";
 
 export interface InputProps extends PropsWithChildren<any> {
@@ -7,7 +7,9 @@ export interface InputProps extends PropsWithChildren<any> {
 }
 
 export const Input: React.FC<InputProps> = React.forwardRef(
-  ({ className, label, type, required, error, ...other }, ref) => {
+  ({ className, label, error, ...other }, ref) => {
+    const { required, type } = other;
+
     const labelEl = useMemo(() => {
       if (!required && !label) {
         return null;
@@ -18,22 +20,19 @@ export const Input: React.FC<InputProps> = React.forwardRef(
       return <label>{text}</label>;
     }, [required, label]);
 
-    const render = useMemo(() => {
-      switch (type) {
-        case "textarea": {
-          return function TextArea(props: any) {
-            return <textarea ref={ref} required={required} {...props} />;
-          };
+    const render = useCallback(
+      (props: any) => {
+        switch (type) {
+          case "textarea": {
+            return <textarea ref={ref} {...props} />;
+          }
+          default: {
+            return <input ref={ref} {...props} />;
+          }
         }
-        default: {
-          return function RawInput(props: any) {
-            return (
-              <input ref={ref} required={required} type={type} {...props} />
-            );
-          };
-        }
-      }
-    }, [type, required, ref]);
+      },
+      [type, ref]
+    );
 
     const inputError = useMemo(() => {
       if (!error) {
@@ -56,3 +55,7 @@ export const Input: React.FC<InputProps> = React.forwardRef(
     );
   }
 );
+
+Input.displayName = "Input";
+
+export default Input;

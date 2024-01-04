@@ -50,12 +50,9 @@ export function Form<T>(props: FormProps<T>) {
           />
         );
       })}
-      <Button
-        type="submit"
-        children="submit"
-        {...submitProps}
-        disabled={!canSubmit}
-      />
+      <Button type="submit" {...submitProps} disabled={!canSubmit}>
+        {submitProps?.children || "submit"}
+      </Button>
     </form>
   );
 }
