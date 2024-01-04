@@ -20,6 +20,7 @@ export interface FormProps<T> {
   fields: TField[];
   submitProps?: Record<string, any>;
   className?: string;
+  onSubmit?: (data: any) => void;
 }
 
 export function Form<T>(props: FormProps<T>) {
@@ -31,7 +32,11 @@ export function Form<T>(props: FormProps<T>) {
   } = useForm<FieldValues>();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    if (props.onSubmit) {
+      console.log(data);
+
+      props.onSubmit(data);
+    }
   };
 
   const canSubmit = useMemo(() => {
