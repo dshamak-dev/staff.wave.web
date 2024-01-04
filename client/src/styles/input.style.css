@@ -1,0 +1,27 @@
+input,
+textarea {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  outline: none;
+  resize: none;
+
+  @apply px-2 py-1 shadow rounded w-full min-h-6;
+}
+
+input[type="file"] {
+  @apply p-0;
+}
+
+.input-wrap[data-type="file"] {
+  min-width: 75px;
+  max-width: 5rem;
+}
+
+.input-wrap label {
+  @apply flex gap-1 sm:text-xs font-extralight capitalize;
+}
+
+.input-wrap.required label:after {
+  content: "*";
+
+  @apply text-red-500;
+}

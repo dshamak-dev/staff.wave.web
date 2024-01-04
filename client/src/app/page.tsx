@@ -2,15 +2,16 @@ import classNames from "classnames";
 import "./page.style.css";
 
 import { Feature } from "sw/components/molecules/Feature";
-import { introGallery, introlFeatures, prosList } from "sw/app/page.model";
+import { introGallery, introlFeatures, prosList } from "sw/configs/index.config";
 import { useCallback, useMemo } from "react";
 import { LinkButton } from "sw/components/atoms/LinkButton";
 import { AnchorButton } from "sw/components/atoms/AnchorButton";
+import { Footer } from "sw/components/molecules/Footer";
 
 export default function LandingPage() {
   const signupButton = useMemo(() => {
     return (
-      <LinkButton href="/create/company" className="highlight">
+      <LinkButton href="/new/company" className="highlight">
         start now
       </LinkButton>
     );
@@ -122,16 +123,7 @@ export default function LandingPage() {
           </div>
         </section>
       </article>
-      <footer>
-        <div
-          className={classNames(
-            "flex justify-center items-center gap-1 text-xs"
-          )}
-        >
-          <p className="py-6">staff.wave</p>
-          <img className="w-4 h-4" alt="staff.wave" src="/logo.webp" />
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

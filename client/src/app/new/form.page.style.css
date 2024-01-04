@@ -1,0 +1,68 @@
+@import url("../../styles/global.style.css") layer("components");
+
+main {
+  height: 100vh;
+  height: 100dvh;
+
+  /* grid-template-areas: 'aside form form form'; */
+  @apply relative primary;
+  @apply sm:grid sm:grid-rows-[1fr] sm:grid-cols-[1fr_3fr];
+
+  .aside-content {
+    background-color: rgb(var(--bg-highlight-rgb));
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+
+    color: rgb(var(--text-secondary-rgb));
+
+    @apply py-8 h-full flex flex-col items-center justify-between box-border;
+
+    .poster-wrap {
+      @apply max-[640px]:opacity-50;
+    }
+
+    .home-link {
+      @apply relative z-10;
+    }
+  }
+
+  .content-wrap {
+    @apply flex justify-center items-center;
+
+    background-repeat: no-repeat;
+    background-position: right bottom;
+
+    .content {
+      top: -10vh;
+      min-width: 50%;
+      max-width: 80%;
+
+      @apply relative flex flex-col gap-4;
+    }
+
+    .title {
+      @apply capitalize text-2xl text-center font-extralight;
+    }
+
+    .form-wrap {
+      background-color: rgba(255, 255, 255, 0.6);
+
+      @apply px-8 py-6 shadow-md rounded;
+    }
+
+    @media screen and (max-width: 640px) {
+      background-image: none !important;
+
+      @apply fixed left-0 top-0 h-full w-screen;
+
+      .content {
+        min-width: 80%;
+      }
+
+      .title {
+        @apply text-3xl text-secondary font-light;
+      }
+    }
+  }
+}

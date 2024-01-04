@@ -82,12 +82,62 @@ html {
   @apply secondary;
 }
 
-body {
-  /* color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 0.9;
+  }
+  80% {
+    scale: 1;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+/* body {
+  background: rgb(var(--bg-highlight-rgb));
+} */
+
+/* body > * {
+  animation: appear 1.5s linear;
+} */
+/* 
+body:before {
+  --units: 4rem;
+
+  content: "";
+
+  width: var(--units);
+  height: var(--units);
+  margin: calc(var(--units) / -2);
+
+  animation: fade-out 1s 0.5s linear, pulse 0.8s 0.25s linear infinite;
+
+  pointer-events: none;
+
+  @apply fixed top-1/2 left-1/2 bg-contain bg-[url('/logo-lg.webp')];
+} */
