@@ -1,6 +1,5 @@
 import { PropsWithoutRef, ReactElement } from "react";
 import "./form.page.style.css";
-import { Footer } from "sw/components/molecules/Footer";
 import Link from "next/link";
 import classNames from "classnames";
 

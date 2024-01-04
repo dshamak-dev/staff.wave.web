@@ -27,6 +27,22 @@
 }
 
 @layer components {
+  .button,
+  button {
+    --_bg: rgb(103, 103, 103);
+    --_color: white;
+
+    background-color: var(--_bg);
+    color: var(--_color);
+
+    @apply px-8 py-1 rounded;
+  }
+
+  .button.highlight,
+  button.highlight {
+    --_bg: rgb(var(--bg-highlight-rgb));
+  }
+
   .bg-primary {
     background-color: rgb(var(--bg-primary-rgb));
   }
@@ -52,22 +68,6 @@
 
   .text-highlight {
     color: rgb(var(--text-highlight-rgb));
-  }
-
-  .button,
-  button {
-    --_bg: rgb(103, 103, 103);
-    --_color: white;
-
-    background-color: var(--_bg);
-    color: var(--_color);
-
-    @apply px-8 py-2 rounded;
-  }
-
-  .button.highlight,
-  button.highlight {
-    --_bg: rgb(var(--bg-highlight-rgb));
   }
 }
 
