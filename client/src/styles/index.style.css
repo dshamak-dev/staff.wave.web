@@ -1,4 +1,4 @@
-
+@import url("./global.style.css") layer("components");
 
 @keyframes fade {
   from {

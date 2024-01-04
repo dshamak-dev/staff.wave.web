@@ -18,7 +18,7 @@ export const NoSSRScript: React.FC<{ src: string }> = ({ src }) => {
     };
 
     el.append(script);
-  }, [el]);
+  }, [el, src]);
 
   return (
     <NoSSR>

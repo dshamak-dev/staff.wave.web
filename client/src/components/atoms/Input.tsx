@@ -23,18 +23,20 @@ export const Input: React.FC<InputProps> = ({
     return <label>{text}</label>;
   }, [required, label]);
 
-  const El = useMemo(() => {
+  const render = useMemo(() => {
     switch (type) {
       case "textarea": {
-        return (props: any) => <textarea required={required} {...props} />;
+        return function TextArea(props: any) {
+          return <textarea required={required} {...props} />;
+        };
       }
       default: {
-        return (props: any) => (
-          <input required={required} type={type} {...props} />
-        );
+        return function RawInput(props: any) {
+          return <input required={required} type={type} {...props} />;
+        };
       }
     }
-  }, [type]);
+  }, [type, required]);
 
   return (
     <div
@@ -43,7 +45,7 @@ export const Input: React.FC<InputProps> = ({
       data-type={type}
     >
       {labelEl}
-      <El {...other} />
+      {render(other)}
     </div>
   );
 };
