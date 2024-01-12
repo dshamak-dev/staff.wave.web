@@ -1,0 +1,32 @@
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.floating {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.2;
+    scale: 0.9;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+.scroll-fade {
+  animation: fade linear;
+  animation-timeline: view();
+  animation-range-end: 15vh;
+}

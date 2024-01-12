@@ -24,10 +24,10 @@ export const Input: React.FC<InputProps> = React.forwardRef(
       (props: any) => {
         switch (type) {
           case "textarea": {
-            return <textarea ref={ref} {...props} />;
+            return <textarea ref={ref} name={props.id} {...props} />;
           }
           default: {
-            return <input ref={ref} {...props} />;
+            return <input ref={ref} name={props.id} {...props} />;
           }
         }
       },

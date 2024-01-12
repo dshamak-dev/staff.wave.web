@@ -1,11 +1,15 @@
 import React, { useMemo } from "react";
 import { LinkButton } from "sw/components/atoms/LinkButton";
+import { PublicNavigation } from "sw/components/molecules/PublicNavigation";
 
 export default function ConfirmPage({ params, searchParams }: any) {
   const { source } = searchParams;
   const content = useMemo(() => {
     switch (source) {
-      case "company-form": {
+      case "company-form":
+      case "request-demo": {
+        const isDemo = source === "request-demo";
+
         return (
           <div className="grid sm:grid-cols-[auto_1fr] items-center">
             <div className="max-[640px]:row-start-2">
@@ -13,15 +17,17 @@ export default function ConfirmPage({ params, searchParams }: any) {
             </div>
             <div className="flex flex-col gap-4 max-[640px]:items-center max-[640px]:text-center">
               <div className="flex flex-col gap-2">
-                <h3 className="capitalize">
-                  company was successfully created!
-                </h3>
+                <h3 className="capitalize">{`${
+                  isDemo
+                    ? "demo was successfully requested!"
+                    : "company was successfully created!"
+                }`}</h3>
                 <p className="text-sm">
                   We will send confirmation email shortly to finish process.
                 </p>
               </div>
-              <LinkButton href="/new/user" className="highlight capitalize">
-                invite member
+              <LinkButton href="/" className="highlight capitalize">
+                go home
               </LinkButton>
             </div>
           </div>
@@ -45,8 +51,8 @@ export default function ConfirmPage({ params, searchParams }: any) {
                     process.
                   </p>
                 </div>
-                <LinkButton href="/login" className="capitalize">
-                  log in
+                <LinkButton href="/" className="capitalize highlight">
+                  go home
                 </LinkButton>
               </div>
             </div>
@@ -70,6 +76,7 @@ export default function ConfirmPage({ params, searchParams }: any) {
 
   return (
     <main className="h-screen primary flex items-center justify-center p-8">
+      <PublicNavigation />
       <div>{content}</div>
     </main>
   );

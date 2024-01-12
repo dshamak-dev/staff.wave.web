@@ -19,8 +19,8 @@ export const Feature: React.FC<FeatureProps> = ({
   return (
     <div className={classNames(className, "flex flex-col gap-2 items-center text-center")}>
       {icon != null ? <FontAwesomeIcon icon={icon} className="h-12 text-highlight" /> : null}
-      <h3>{title}</h3>
-      <p className="text-sm">{text}</p>
+      <h3 className="font-normal">{title}</h3>
+      <p className="text-sm font-light">{text}</p>
     </div>
   );
 };

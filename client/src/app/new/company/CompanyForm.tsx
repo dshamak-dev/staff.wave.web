@@ -15,14 +15,14 @@ export const CompanyForm = () => {
   return (
     <form className="flex flex-col gap-4" onSubmit={(e) => handleSubmit(e)}>
       <div className="flex gap-2">
-        <Input type="text" label="name" className="grow" />
-        <Input type="file" label="logo" />
+        <Input type="text" label="name" id="name" className="grow" />
+        {/* <Input type="file" label="logo" /> */}
       </div>
       <div>
-        <Input type="email" label="email" />
+        <Input type="email" label="corporate email" id="corporateEmail" />
       </div>
       <div>
-        <Input type="text" label="domain" />
+        <Input type="text" label="domain"  />
       </div>
       <div>
         <Input type="textarea" label="description" rows="3" />
