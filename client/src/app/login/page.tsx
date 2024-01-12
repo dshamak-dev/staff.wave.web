@@ -12,10 +12,8 @@ export default function LoginPage({ params, searchParams }: any) {
         </div>
         <div className="flex flex-col gap-4 max-[640px]:items-center max-[640px]:text-center">
           <div className="flex flex-col gap-2">
-            <h3 className="capitalize">don't have registered company?</h3>
-            <p className="text-sm uppercase">
-              Request Demo to get access
-            </p>
+            <h3 className="capitalize">{`don't have registered company?`}</h3>
+            <p className="text-sm uppercase">Request Demo to get access</p>
           </div>
           <LinkButton href="/request-demo" className="capitalize highlight">
             request demo
