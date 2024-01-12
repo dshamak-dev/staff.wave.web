@@ -39,6 +39,11 @@
     @apply px-8 py-1 rounded;
   }
 
+  .button[disabled],
+  button[disabled] {
+    @apply pointer-events-none opacity-40;
+  }
+
   .button.highlight,
   button.highlight {
     --_bg: rgb(var(--bg-highlight-rgb));
@@ -145,27 +150,3 @@ html.custom-scroll {
     scale: 1;
   }
 }
-
-/* body {
-  background: rgb(var(--bg-highlight-rgb));
-} */
-
-/* body > * {
-  animation: appear 1.5s linear;
-} */
-/* 
-body:before {
-  --units: 4rem;
-
-  content: "";
-
-  width: var(--units);
-  height: var(--units);
-  margin: calc(var(--units) / -2);
-
-  animation: fade-out 1s 0.5s linear, pulse 0.8s 0.25s linear infinite;
-
-  pointer-events: none;
-
-  @apply fixed top-1/2 left-1/2 bg-contain bg-[url('/logo-lg.webp')];
-} */

@@ -11,6 +11,10 @@ input[type="file"] {
   @apply p-0;
 }
 
+input[disabled] {
+  @apply pointer-events-none opacity-40;
+}
+
 .input-wrap[data-type="file"] {
   min-width: 75px;
   max-width: 5rem;

@@ -1,7 +1,10 @@
 import { appConfig } from "sw/appConfig";
 
 const normalizeURL = (path: string) => {
-  return `${appConfig.API_URL}/api/${path.replace(/^\//, "")}`;
+  const host = appConfig.API_URL?.replace(/\/$/, "");
+  const address = path.replace(/^\//, "");
+
+  return `${host}/${address}`;
 };
 
 export const waitForMs = (ms: number): Promise<void> => {
@@ -37,7 +40,7 @@ export const GET = (path: string, options?: any) => {
 export const POST = (path: string, body: string, options?: any) => {
   return fetch(normalizeURL(path), {
     method: "POST",
-    credentials: 'same-origin',
+    credentials: "same-origin",
     ...Object.assign(options, {
       headers: Object.assign(
         {
