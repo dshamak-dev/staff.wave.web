@@ -11,4 +11,8 @@
   h4 {
     @apply text-lg;
   }
+
+  .text-reverse {
+    mix-blend-mode: difference;
+  }
 }

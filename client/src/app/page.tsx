@@ -2,20 +2,25 @@ import classNames from "classnames";
 import "./page.style.css";
 
 import { Feature } from "sw/components/molecules/Feature";
-import { introGallery, introlFeatures, prosList } from "sw/configs/index.config";
+import {
+  introGallery,
+  introlFeatures,
+  prosList,
+} from "sw/configs/index.config";
 import { useCallback, useMemo } from "react";
-import { LinkButton } from "sw/components/atoms/LinkButton";
 import { AnchorButton } from "sw/components/atoms/AnchorButton";
 import { Footer } from "sw/components/molecules/Footer";
+import { LinkButton } from "sw/components/atoms/LinkButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowDown,
+  faArrowLeft,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
+import { PublicNavigation } from "sw/components/molecules/PublicNavigation";
 
 export default function LandingPage() {
-  const signupButton = useMemo(() => {
-    return (
-      <LinkButton href="/new/company" className="highlight">
-        start now
-      </LinkButton>
-    );
-  }, []);
   const renderLearnMoreButton = useCallback((targetId: string) => {
     return <AnchorButton targetId={targetId}>learn more</AnchorButton>;
   }, []);
@@ -30,6 +35,7 @@ export default function LandingPage() {
     >
       <article>
         <section className={classNames("intro", "flex flex-col gap-8")}>
+          <PublicNavigation className="text-highlight text-reverse" />
           <div
             className={classNames(
               "relative z-10 mt-24 flex flex-col gap-4 items-center"
@@ -45,8 +51,13 @@ export default function LandingPage() {
               environment where your team can flourish.`}</p>
           </div>
           <div className="flex gap-8 justify-center">
-            {signupButton}
+            <LinkButton href="/request-demo" className="primary">
+              request demo
+            </LinkButton>
             {renderLearnMoreButton("features")}
+          </div>
+          <div className="absolute -bottom-4 w-6 z-10 left-1/2 floating">
+            <FontAwesomeIcon icon={faArrowDown} />
           </div>
         </section>
         <section id="features" className="flex flex-col gap-12">
@@ -62,11 +73,11 @@ export default function LandingPage() {
             ))}
           </div>
         </section>
-        <section className="gallery-section">
+        <section className="gallery-section relative">
           <div className="gallery-wrap">
             <div className={classNames("gallery")}>
               {introGallery.map(({ url, text }, index) => (
-                <div key={index} className="h-[35vw]">
+                <div key={index} className="gallery-item h-[35vw]">
                   <img
                     loading="lazy"
                     src={url}
@@ -77,14 +88,20 @@ export default function LandingPage() {
               ))}
             </div>
           </div>
+          <div className="absolute z-10 bottom-2 left-1/2 opacity-40">
+            <div className="flex gap-4">
+              <FontAwesomeIcon icon={faArrowLeft} className="w-4" />
+              <FontAwesomeIcon icon={faArrowRight} className="w-4" />
+            </div>
+          </div>
         </section>
         <section>
           <div className="grid grid-rows-[2fr_3fr] sm:grid-rows-[1fr] sm:grid-cols-[2fr_3fr] gap-8 text-center sm:text-left">
             <div className="flex items-center bg-no-repeat bg-cover bg-[url('/assets/intro/elevate.webp')]"></div>
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-2">
-                <h3>Elevate with Saff.Wave</h3>
-                <p>{`Transform the way you work, cultivate a positive company
+                <h3 className="font-normal">Elevate with Saff.Wave</h3>
+                <p className="font-light">{`Transform the way you work, cultivate a positive company
                   culture, and propel your business forward. Try Saff.Wave today
                   and witness the difference in efficiency, collaboration, and
                   employee satisfaction.`}</p>
@@ -98,8 +115,8 @@ export default function LandingPage() {
             <div className="flex flex-col gap-8">
               {prosList.map(({ title, text }, index) => (
                 <div key={index} className="flex flex-col gap-2">
-                  <h4 className="text-sm">{title}</h4>
-                  <p className="text-sm text-gray-500">{text}</p>
+                  <h4 className="text-sm font-normal">{title}</h4>
+                  <p className="text-sm font-light text-gray-500">{text}</p>
                 </div>
               ))}
             </div>
@@ -110,14 +127,18 @@ export default function LandingPage() {
           <div className="grid sm:grid-rows-[1fr] sm:grid-cols-[3fr_2fr] gap-8 text-center sm:text-left">
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-2">
-                <h2>Effortless Employee Onboarding</h2>
-                <p>{`Simplify onboarding with Saff.Wave's user-friendly tools.
+                <h2 className="font-normal">Effortless Employee Onboarding</h2>
+                <p className="font-light">{`Simplify onboarding with Saff.Wave's user-friendly tools.
                   Transform the way you work, cultivate a positive company
                   culture, and propel your business forward. Try Saff.Wave today
                   and witness the difference in efficiency, collaboration, and
                   employee satisfaction.`}</p>
               </div>
-              <div>{signupButton}</div>
+              <div>
+                <LinkButton href="/request-demo" className="highlight">
+                  request demo
+                </LinkButton>
+              </div>
             </div>
             <div className="max-[640px]:hidden sm:min-h-[30vh] flex items-center bg-no-repeat bg-contain bg-center bg-[url('/assets/intro/onboarding.webp')]"></div>
           </div>

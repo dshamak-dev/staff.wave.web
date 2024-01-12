@@ -1,15 +1,4 @@
-@import url("../styles/global.style.css") layer("components");
-
-@keyframes fade {
-  from {
-    opacity: 0.2;
-    scale: 0.9;
-  }
-  to {
-    scale: 1;
-    opacity: 1;
-  }
-}
+@import url("../styles/global.style.css");
 
 @keyframes fade-scroll {
   0% {
@@ -31,36 +20,42 @@
   article {
     section {
       @apply relative px-4 sm:px-16 py-16;
-    }
 
-    section * {
-      animation: fade linear;
-      animation-timeline: view();
-      animation-range-end: 20vh;
+      p, h1, h2, h3, h4, a, svg {
+        @apply scroll-fade;
+      }
     }
 
     section.intro {
-      @apply relative text-center;
+      @apply relative text-center pt-24 highlight;
+
+      h1 {
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+      }
+    }
+
+    section.intro + section:before {
+      border-color: rgb(var(--bg-highlight-rgb));
     }
 
     section.intro:before {
       content: "";
 
-      background-image: url("/assets/intro/intro.webp");
+      background-image: url("/assets/about-us.png");
       background-position: center top;
       background-size: contain;
       background-repeat: no-repeat;
 
       pointer-events: none;
 
-      @apply absolute left-0 top-0 w-full h-full z-0 flex justify-center opacity-40;
+      @apply absolute left-0 top-0 w-full h-3/4 z-0 flex justify-center opacity-30;
     }
 
     section:nth-child(even) {
       @apply py-24 primary;
     }
 
-    section:nth-child(odd) {
+    section:nth-child(odd):not(.intro) {
       @apply secondary;
     }
 
@@ -93,12 +88,12 @@
     @apply px-0;
 
     .gallery-wrap {
-      @apply w-screen overflow-x-auto;
+      @apply w-screen pb-4 overflow-x-auto;
 
       .gallery {
         @apply relative z-20 px-4 sm:px-16 flex gap-8 w-max;
 
-        img {
+        .gallery-item {
           animation: fade-scroll linear;
           animation-timeline: view(inline);
         }

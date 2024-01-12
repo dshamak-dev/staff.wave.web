@@ -6,10 +6,10 @@ interface Props extends PropsWithChildren<any> {}
 export const Footer: React.FC<Props> = ({ className }) => {
   return <footer className={classNames(className)}>
     <div
-      className={classNames("flex justify-center items-center gap-1 text-xs")}
+      className={classNames("flex flex-col justify-center items-center gap-0 py-4 text-xs")}
     >
-      <p className="py-6">staff.wave</p>
-      <img className="w-4 h-4" alt="staff.wave" src="/logo.webp" />
+      <img className="w-10 h-10" alt="staff.wave" src="/logo.webp" />
+      <p>staff.wave</p>
     </div>
   </footer>;
 };
