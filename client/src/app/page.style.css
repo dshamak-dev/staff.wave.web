@@ -27,15 +27,11 @@
     }
 
     section.intro {
-      @apply relative text-center pt-24 highlight;
+      @apply relative text-center pt-24;
 
       h1 {
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
       }
-    }
-
-    section.intro + section:before {
-      border-color: rgb(var(--bg-highlight-rgb));
     }
 
     section.intro:before {
@@ -55,7 +51,7 @@
       @apply py-24 primary;
     }
 
-    section:nth-child(odd):not(.intro) {
+    section:nth-child(odd) {
       @apply secondary;
     }
 

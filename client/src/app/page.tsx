@@ -51,7 +51,7 @@ export default function LandingPage() {
               environment where your team can flourish.`}</p>
           </div>
           <div className="flex gap-8 justify-center">
-            <LinkButton href="/request-demo" className="primary">
+            <LinkButton href="/request-demo" className="highlight">
               request demo
             </LinkButton>
             {renderLearnMoreButton("features")}
