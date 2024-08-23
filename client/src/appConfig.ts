@@ -1,4 +1,4 @@
 export const appConfig = {
   API_URL: process.env.NEXT_PUBLIC_API_URL || '/',
 };
-// VS push code comment test
+// Github Push push code comment test
